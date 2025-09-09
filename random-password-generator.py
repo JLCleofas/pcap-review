@@ -1,7 +1,13 @@
-def password_generator():
+def password_generator(length, uppercase_letter, use_digits, use_special_char):
     import random
 
-    characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+'
+    letters = 'abcdefghijklmnopqrstuvwxyz'
+    digits = '0123456789'
+    special_characters = '!@#$%^&*|()_+'
+
+    generated_password = [characters for characters in range ()]
+
+    # characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*|()_+'
 
 
 while True:
@@ -15,7 +21,10 @@ while True:
         try:
             length = int(input('Provide password length: '))
             uppercase_letter = input('Use uppercase letters? (y/n): ')
-            password_generator()
+            use_digits = input('Use digits? (y/n): ')
+            use_special_char = input('Use special characters? (y/n): ')
+
+            print(f'Generated password: {password_generator(length, uppercase_letter, use_digits, use_special_char)}')
         except ValueError:
             print('Please enter a valid number!')
     elif choice == '2':
