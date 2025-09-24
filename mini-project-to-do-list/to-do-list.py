@@ -28,7 +28,7 @@ class ToDo:
                 print('Empty list\n\n')
             else:
                 for task in tasks:
-                    print(' | '.join(task.split(';')))
+                    print(' | '.join(task.split(';')), end='')
         except Exception as e:
             print(f'An error occurred: {e}')
         finally:
@@ -37,6 +37,10 @@ class ToDo:
     def add_task(self):
         try:
             todo_list = open('todo-list.txt', 'a')
+            task_input = input('What is the task? ')
+            task_deadline = input('When is the deadline? ')
+            todo_list.write(
+                f'{str(uuid.uuid4())};{task_input};{task_deadline}\n')
         except Exception as e:
             print(f'An error occurred: {e}')
         finally:
@@ -66,4 +70,3 @@ class ToDo:
 
 todo = ToDo()
 todo.run()
-print(str(uuid.uuid4()))
