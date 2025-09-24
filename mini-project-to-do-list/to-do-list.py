@@ -23,11 +23,11 @@ class ToDo:
         try:
             print('[ YOUR TASKS ]')
             todo_list = open('todo-list.txt')
-            tasks = todo_list.readlines()
-            if len(tasks) == 0:
+            self.tasks = todo_list.readlines()
+            if len(self.tasks) == 0:
                 print('Empty list\n\n')
             else:
-                for task in tasks:
+                for task in self.tasks:
                     print(' | '.join(task.split(';')), end='')
         except Exception as e:
             print(f'An error occurred: {e}')
@@ -48,7 +48,32 @@ class ToDo:
 
     def complete_task(self):
         try:
-            todo_list = open('todo-list.txt', 'a')
+            # Read all tasks from the file
+            with open('todo-list.txt', 'r') as todo_list:
+                self.tasks = todo_list.readlines()
+
+            # Show tasks
+            self.show_tasks()
+
+            # Get the ID to complete
+            task_id = input('Enter id to complete: ').strip()
+
+            # Find and remove the task with matching ID
+            updated_tasks = []
+            task_found = False
+            for task in self.tasks:
+                if task.startswith(task_id + ';'):
+                    task_found = True
+                else:
+                    updated_tasks.append(task)
+
+            if task_found:
+                # Write the updated list back to the file
+                with open('todo-list.txt', 'w') as todo_list:
+                    todo_list.writelines(updated_tasks)
+                print('Task completed and removed.')
+            else:
+                print('Task ID not found.')
         except Exception as e:
             print(f'An error occurred: {e}')
         finally:

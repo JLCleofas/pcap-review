@@ -1,4 +1,2 @@
-b0309c67-6924-4532-81a2-5467e667d3e1;wash dishes;june
-390bd6dbc-3ed3-41b1-8fc1-8fd819f1eb8b;do the laundry;tomorrow
 ed762d3d-2a54-481b-8c69-ea68011bbd49;walk the dog;later
 0d763d57-327c-49a6-8a68-c98a4c5781bc;create a 'complete task' function;today
